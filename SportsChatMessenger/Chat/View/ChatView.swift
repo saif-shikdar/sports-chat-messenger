@@ -12,10 +12,18 @@ struct ChatView: View {
     @ObservedObject var viewModel: ChatViewModel
     
     var body: some View {
-        VStack(spacing: 10) {
+        NavigationView {
+            VStack(spacing: 10) {
+                Text("Hello Chat!")
+            }
+            .safeAreaPadding()
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Chat")
+                }
+            }
             
         }
-        .safeAreaPadding()
         
     }
 }

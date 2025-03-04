@@ -12,10 +12,16 @@ struct SettingsView: View {
     @ObservedObject var viewModel: SettingsViewModel
     
     var body: some View {
-        VStack(spacing: 10) {
-            
+        NavigationView {
+            VStack(spacing: 10) {
+                Text("Hello Settings!")
+            }
+            .safeAreaPadding()
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Settings")
+                }
+            }
         }
-        .safeAreaPadding()
-        
     }
 }

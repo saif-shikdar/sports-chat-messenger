@@ -13,7 +13,6 @@ class Coordinator: ObservableObject {
     @Published var navigationPath = NavigationPath()
     
     func pushPage(_ page: Page) {
-        
         if page == .root {
             // Home is the root, so we clear the path to navigation back
             navigationPath.removeLast(navigationPath.count)
@@ -28,6 +27,7 @@ class Coordinator: ObservableObject {
     
     enum Page: Hashable {
         case root
+        case profile
     }
 }
 
@@ -42,4 +42,8 @@ protocol ChatViewModelProtocol {
 
 protocol SettingsViewModelProtocol {
     func navigateBackToRoot()
+}
+
+protocol ProfileButtonViewModelProtocol {
+    func navigateToPage(_ page: Coordinator.Page)
 }

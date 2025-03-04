@@ -22,8 +22,11 @@ struct CoordinatorContentView: View {
                     .tabItem {
                         Label("Chat", systemImage: "person.2.fill")
                     }
+                SettingsView(viewModel: SettingsViewModel(coordinator: coordinator))
+                    .tabItem {
+                        Label("Settings", systemImage: "gearshape.fill")
+                    }
             }
-            
         }
     }
 }
