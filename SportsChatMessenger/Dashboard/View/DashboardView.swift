@@ -21,13 +21,25 @@ struct DashboardView: View {
                 ToolbarItem(placement: .principal) {
                     Text("Dashboard")
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarTrailing) {
                     ProfileButtonView(
-                        viewModel: ProfileButtonViewModel(
-                            coordinator: viewModel.coordinator))
+                        imageURL: "https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8",
+                        buttonTapped: viewModel.openProfile)
                 }
+            }
+            .background {
+                Image("light-background")
+                    .resizable()
+                    .edgesIgnoringSafeArea(.all)
+                    .frame(
+                        width: UIScreen.main.bounds.width,
+                        height: UIScreen.main.bounds.height)
             }
         }
 
     }
+}
+
+#Preview {
+    DashboardView(viewModel: DashboardViewModel(coordinator: nil))
 }

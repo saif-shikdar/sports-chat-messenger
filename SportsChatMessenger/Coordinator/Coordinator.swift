@@ -27,6 +27,7 @@ class Coordinator: ObservableObject {
     
     enum Page: Hashable {
         case root
+        case signUp
         case profile
     }
 }
@@ -36,12 +37,16 @@ protocol DashboardViewModelProtocol {
     func navigateToPage(_ page: Coordinator.Page)
 }
 
+protocol LoginViewModelProtocol {
+    func navigateToPage(_ page: Coordinator.Page)
+}
+
 protocol ChatViewModelProtocol {
-    func navigateBackToRoot()
+    func navigateToPage(_ page: Coordinator.Page)
 }
 
 protocol SettingsViewModelProtocol {
-    func navigateBackToRoot()
+    func navigateToPage(_ page: Coordinator.Page)
 }
 
 protocol ProfileButtonViewModelProtocol {

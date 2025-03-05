@@ -7,14 +7,20 @@
 
 import Foundation
 
-class DashboardViewModel: DashboardViewModelProtocol, ObservableObject {
-    var coordinator: Coordinator
+class DashboardViewModel: ObservableObject {
+    var coordinator: Coordinator?
     
-    init(coordinator: Coordinator) {
+    init(coordinator: Coordinator?) {
         self.coordinator = coordinator
     }
     
+    func openProfile() -> Void {
+        navigateToPage(.profile)
+    }
+}
+
+extension DashboardViewModel: DashboardViewModelProtocol {
     func navigateToPage(_ page: Coordinator.Page) {
-        coordinator.pushPage(page)
+        coordinator?.pushPage(page)
     }
 }

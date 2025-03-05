@@ -6,6 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8A80D7FE2D7721DA005ED43A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8A80D7FD2D7721DA005ED43A /* FirebaseAnalytics */; };
+		8A80D8002D7721DA005ED43A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8A80D7FF2D7721DA005ED43A /* FirebaseAuth */; };
+		8A80D8022D7721DA005ED43A /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8A80D8012D7721DA005ED43A /* FirebaseCore */; };
+		8A80D8042D7721DA005ED43A /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8A80D8032D7721DA005ED43A /* FirebaseCrashlytics */; };
+		8A80D8062D7721DA005ED43A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8A80D8052D7721DA005ED43A /* FirebaseFirestore */; };
+		8A80D8082D7721DA005ED43A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8A80D8072D7721DA005ED43A /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		8A7A67A62D75E0960048A754 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +61,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A80D7FE2D7721DA005ED43A /* FirebaseAnalytics in Frameworks */,
+				8A80D8042D7721DA005ED43A /* FirebaseCrashlytics in Frameworks */,
+				8A80D8022D7721DA005ED43A /* FirebaseCore in Frameworks */,
+				8A80D8062D7721DA005ED43A /* FirebaseFirestore in Frameworks */,
+				8A80D8002D7721DA005ED43A /* FirebaseAuth in Frameworks */,
+				8A80D8082D7721DA005ED43A /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +127,12 @@
 			);
 			name = SportsChatMessenger;
 			packageProductDependencies = (
+				8A80D7FD2D7721DA005ED43A /* FirebaseAnalytics */,
+				8A80D7FF2D7721DA005ED43A /* FirebaseAuth */,
+				8A80D8012D7721DA005ED43A /* FirebaseCore */,
+				8A80D8032D7721DA005ED43A /* FirebaseCrashlytics */,
+				8A80D8052D7721DA005ED43A /* FirebaseFirestore */,
+				8A80D8072D7721DA005ED43A /* FirebaseStorage */,
 			);
 			productName = SportsChatMessenger;
 			productReference = 8A7A67922D75E0940048A754 /* SportsChatMessenger.app */;
@@ -195,6 +216,9 @@
 			);
 			mainGroup = 8A7A67892D75E0940048A754;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				8A80D7FC2D7721DA005ED43A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8A7A67932D75E0940048A754 /* Products */;
 			projectDirPath = "";
@@ -396,16 +420,19 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -435,16 +462,19 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -591,6 +621,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8A80D7FC2D7721DA005ED43A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8A80D7FD2D7721DA005ED43A /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A80D7FC2D7721DA005ED43A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		8A80D7FF2D7721DA005ED43A /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A80D7FC2D7721DA005ED43A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		8A80D8012D7721DA005ED43A /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A80D7FC2D7721DA005ED43A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		8A80D8032D7721DA005ED43A /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A80D7FC2D7721DA005ED43A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		8A80D8052D7721DA005ED43A /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A80D7FC2D7721DA005ED43A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		8A80D8072D7721DA005ED43A /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8A80D7FC2D7721DA005ED43A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8A7A678A2D75E0940048A754 /* Project object */;
 }

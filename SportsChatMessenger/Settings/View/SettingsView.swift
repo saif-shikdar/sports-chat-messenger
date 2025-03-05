@@ -15,12 +15,22 @@ struct SettingsView: View {
         NavigationView {
             VStack(spacing: 10) {
                 Text("Hello Settings!")
+                    .foregroundStyle(.white)
             }
             .safeAreaPadding()
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("Settings")
+                        .foregroundStyle(.white)
                 }
+            }
+            .background {
+                Image("dark-background")
+                    .resizable()
+                    .edgesIgnoringSafeArea(.all)
+                    .frame(
+                        width: UIScreen.main.bounds.width,
+                        height: UIScreen.main.bounds.height)
             }
         }
     }
