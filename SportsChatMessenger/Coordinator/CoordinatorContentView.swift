@@ -10,27 +10,52 @@ import SwiftUI
 
 struct CoordinatorContentView: View {
     @StateObject var coordinator = Coordinator()
+    @EnvironmentObject var authService: AuthenticationService
 
     var body: some View {
         NavigationStack(path: $coordinator.navigationPath) {
-            TabView {
-                DashboardView(viewModel: DashboardViewModel(coordinator: coordinator))
-                    .tabItem {
-                        Label("Dashboard", systemImage: "house.fill")
+            if authService.signedIn {
+                createTabView()
+                .navigationDestination(for: Coordinator.Page.self) { page in
+                    switch page {
+                    case .root:
+                        createTabView()
+                    case .profile:
+                        ProfileView()
+                    case .signUp:
+                        LoginView(viewModel: LoginViewModel(coordinator: coordinator))
                     }
-                ChatView(viewModel: ChatViewModel(coordinator: coordinator))
-                    .tabItem {
-                        Label("Chat", systemImage: "person.2.fill")
-                    }
-                SettingsView(viewModel: SettingsViewModel(coordinator: coordinator))
-                    .tabItem {
-                        Label("Settings", systemImage: "gearshape.fill")
-                    }
+                }
+            } else {
+                LoginView(viewModel: LoginViewModel(coordinator: coordinator))
             }
         }
     }
-}
-
-#Preview {
-    CoordinatorContentView()
+    
+    @ViewBuilder
+    func createTabView() -> some View {
+        TabView {
+            DashboardView(
+                viewModel: DashboardViewModel(
+                    coordinator: coordinator)
+            )
+            .tabItem {
+                Label("Dashboard", systemImage: "house.fill")
+            }
+            ChatView(
+                viewModel: ChatViewModel(
+                    coordinator: coordinator)
+            )
+            .tabItem {
+                Label("Chat", systemImage: "person.2.fill")
+            }
+            SettingsView(
+                viewModel: SettingsViewModel(
+                    coordinator: coordinator)
+            )
+            .tabItem {
+                Label("Settings", systemImage: "gearshape.fill")
+            }
+        }
+    }
 }

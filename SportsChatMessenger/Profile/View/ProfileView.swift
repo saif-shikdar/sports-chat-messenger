@@ -1,27 +1,21 @@
 //
-//  ChatView.swift
+//  ProfileView.swift
 //  SportsChatMessenger
 //
-//  Created by Saif Shikdar on 03/03/2025.
+//  Created by Saif Shikdar on 05/03/2025.
 //
 
-import SwiftUICore
 import SwiftUI
+import SwiftUICore
 
-struct ChatView: View {
-    @ObservedObject var viewModel: ChatViewModel
-    
+struct ProfileView: View {
+
     var body: some View {
         NavigationView {
             VStack(spacing: 10) {
-                Text("Hello Chat!")
+                Text("Hello Profile!")
             }
             .safeAreaPadding()
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Chat")
-                }
-            }
             .background {
                 Image("light-background")
                     .resizable()
@@ -30,8 +24,11 @@ struct ChatView: View {
                         width: UIScreen.main.bounds.width,
                         height: UIScreen.main.bounds.height)
             }
-            
         }
-        
+
     }
+}
+
+#Preview {
+    ProfileView()
 }
