@@ -18,9 +18,6 @@ struct DashboardView: View {
             }
             .safeAreaPadding()
             .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Text("Dashboard")
-                }
                 ToolbarItem(placement: .topBarTrailing) {
                     ProfileButtonView(
                         imageURL: "https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8",
