@@ -48,7 +48,3 @@ protocol ChatViewModelProtocol {
 protocol SettingsViewModelProtocol {
     func navigateToPage(_ page: Coordinator.Page)
 }
-
-protocol ProfileButtonViewModelProtocol {
-    func navigateToPage(_ page: Coordinator.Page)
-}
