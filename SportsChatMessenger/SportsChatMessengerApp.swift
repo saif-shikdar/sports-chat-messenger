@@ -26,12 +26,14 @@ struct SportsChatMessengerApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
+    @StateObject var coordinator = Coordinator()
     @StateObject var authService = AuthenticationService()
 
     var body: some Scene {
         WindowGroup {
             CoordinatorContentView()
                 .environmentObject(authService)
+                .environmentObject(coordinator)
         }
     }
 }

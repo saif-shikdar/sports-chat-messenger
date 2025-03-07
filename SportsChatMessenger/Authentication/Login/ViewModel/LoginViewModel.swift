@@ -14,10 +14,11 @@ class LoginViewModel: ObservableObject {
     @Published var errorMessage: String?
     
     var coordinator: Coordinator?
-    let authService: AuthenticationService = AuthenticationService()
+    let authService: AuthenticationService
     
-    init(coordinator: Coordinator?) {
+    init(coordinator: Coordinator?, authService: AuthenticationService = AuthenticationService()) {
         self.coordinator = coordinator
+        self.authService = authService
     }
     
     func signIn() {
