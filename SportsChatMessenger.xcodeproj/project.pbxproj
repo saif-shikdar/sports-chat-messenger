@@ -13,6 +13,7 @@
 		8A80D8042D7721DA005ED43A /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8A80D8032D7721DA005ED43A /* FirebaseCrashlytics */; };
 		8A80D8062D7721DA005ED43A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8A80D8052D7721DA005ED43A /* FirebaseFirestore */; };
 		8A80D8082D7721DA005ED43A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8A80D8072D7721DA005ED43A /* FirebaseStorage */; };
+		8AB44C552D7B33D2007B6692 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 8AB44C542D7B33D2007B6692 /* ViewInspector */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AB44C552D7B33D2007B6692 /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +158,7 @@
 			);
 			name = SportsChatMessengerTests;
 			packageProductDependencies = (
+				8AB44C542D7B33D2007B6692 /* ViewInspector */,
 			);
 			productName = SportsChatMessengerTests;
 			productReference = 8A7A67A52D75E0960048A754 /* SportsChatMessengerTests.xctest */;
@@ -218,6 +221,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				8A80D7FC2D7721DA005ED43A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8AB44C532D7B33D2007B6692 /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8A7A67932D75E0940048A754 /* Products */;
@@ -631,6 +635,14 @@
 				minimumVersion = 11.9.0;
 			};
 		};
+		8AB44C532D7B33D2007B6692 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -663,6 +675,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8A80D7FC2D7721DA005ED43A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		8AB44C542D7B33D2007B6692 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8AB44C532D7B33D2007B6692 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
