@@ -24,7 +24,7 @@ struct ProfileButtonView: View {
                 case .success(let image):
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
                         .imageScale(.small)
                         .frame(width: 35, height: 35)
                         .clipShape(.circle)

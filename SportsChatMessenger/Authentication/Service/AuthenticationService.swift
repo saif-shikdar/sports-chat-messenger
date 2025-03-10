@@ -12,6 +12,7 @@ class AuthenticationService: ObservableObject {
     @Published var signedIn: Bool = false
 
     let auth = Auth.auth()
+    let sessionStorage = SessionStorage()
 
     init() {
         _ = auth.addStateDidChangeListener { _, user in
@@ -28,6 +29,8 @@ class AuthenticationService: ObservableObject {
             if let e = error {
                 completion(e)
             } else {
+                self.sessionStorage.storeUserEmail(email: email)
+                self.sessionStorage.storeUserID(userID: authResult?.user.uid ?? "")
                 completion(nil)
             }
         }

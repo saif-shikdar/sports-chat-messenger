@@ -8,21 +8,43 @@
 import Foundation
 
 class SettingsViewModel: ObservableObject {
-    @Published var ProfilePictureImageURL: String
-    @Published var forename: String
-    @Published var surname: String
+    @Published var user: User?
     
     @Published var showErrorMessage: Bool = false
     @Published var errorMessage: String?
     
     var coordinator: Coordinator?
-    let authService: AuthenticationService = AuthenticationService()
+    let authService: AuthenticationService
+    let settingsService: SettingsService
+    let sessionStorage: SessionStorage
     
-    init(coordinator: Coordinator?) {
+    init(coordinator: Coordinator?,
+         sessionStorage: SessionStorage = SessionStorage(),
+         authService: AuthenticationService = AuthenticationService(),
+         settingsService: SettingsService = SettingsService()
+    ) {
         self.coordinator = coordinator
-        self.ProfilePictureImageURL = "https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8"
-        self.forename = "Lindsay"
-        self.surname = "Lohan"
+        self.sessionStorage = sessionStorage
+        self.authService = authService
+        self.settingsService = settingsService
+    }
+    
+    func fetchData() async {
+        guard let userID = sessionStorage.userID else {
+            self.errorMessage = "Unable to fetch user information. Please try again later."
+            self.showErrorMessage = true;
+            return
+        }
+        
+        await settingsService.getUserData(userID: userID) { result in
+            switch result {
+            case .success(let user):
+                self.user = user
+            case .failure(let error):
+                self.errorMessage = error.localizedDescription
+                self.showErrorMessage = true;
+            }
+        }
     }
     
     func onProfileTapped() {

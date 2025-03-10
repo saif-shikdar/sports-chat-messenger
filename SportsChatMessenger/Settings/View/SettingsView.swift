@@ -16,9 +16,9 @@ struct SettingsView: View {
             VStack {
                 Spacer()
                 ProfilePictureView(
-                    imageURL: viewModel.ProfilePictureImageURL,
-                    forename: viewModel.forename,
-                    surname: viewModel.surname
+                    imageURL: viewModel.user?.profilePictureURL ?? "",
+                    forename: viewModel.user?.forename ?? "",
+                    surname: viewModel.user?.surname ?? ""
                 )
                 .padding(.bottom, 64)
                 Spacer()
@@ -39,6 +39,9 @@ struct SettingsView: View {
                 } message: {
                     Text(viewModel.errorMessage ?? "Unknown Error")
                 }
+            }
+            .task {
+                await viewModel.fetchData()
             }
             .safeAreaPadding()
             .background {

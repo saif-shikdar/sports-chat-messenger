@@ -20,13 +20,16 @@ struct ProfilePictureView: View {
             ) { phase in
                 switch phase {
                 case .failure:
-                    Image(systemName: "photo")
-                        .font(.largeTitle)
+                    ProgressView()
+                        .frame(
+                            width: 150,
+                            height: 150
+                        )
                 case .success(let image):
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .imageScale(.large)
+                        .aspectRatio(contentMode: .fill)
+                        .imageScale(.medium)
                         .frame(
                             width: 150,
                             height: 150
@@ -34,6 +37,10 @@ struct ProfilePictureView: View {
                         .clipShape(.circle)
                 default:
                     ProgressView()
+                        .frame(
+                            width: 150,
+                            height: 150
+                        )
                 }
             }
             .padding(.top, 32)
@@ -46,6 +53,8 @@ struct ProfilePictureView: View {
 }
 
 #Preview {
-    ProfilePictureView(imageURL: "https://newprofilepic.photo-cdn.net//assets/images/article/profile.jpg?90af0c8", forename: "Lindsay", surname: "Lohan")
+    ProfilePictureView(imageURL: "",
+                       forename: "Lindsay",
+                       surname: "Lohan")
 }
 
