@@ -25,7 +25,7 @@ struct DashboardView: View {
                 }
             }
             .background {
-                Image("light-background")
+                Image(Images.lightBackground)
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
                     .frame(

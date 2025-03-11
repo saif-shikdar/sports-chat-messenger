@@ -21,7 +21,7 @@ struct CoordinatorContentView: View {
                     case .root:
                         createTabView()
                     case .profile:
-                        ProfileView()
+                        ProfileView(viewModel: ProfileViewModel(profile: nil))
                     case .signUp:
                         LoginView(viewModel: LoginViewModel(coordinator: coordinator))
                     }
