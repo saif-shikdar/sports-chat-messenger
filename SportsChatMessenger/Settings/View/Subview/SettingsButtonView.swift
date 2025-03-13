@@ -20,11 +20,15 @@ struct SettingsButtonView: View {
             } label: {
                 HStack {
                     Image(systemName: iconName)
+                        .foregroundStyle(DesignTokens.Colors.primary)
                     Spacer()
                     Text(text)
+                        .font(DesignTokens.Typography.bodyFont)
+                        .foregroundStyle(DesignTokens.Colors.primary)
                         .textCase(.uppercase)
                     Spacer()
                     Image(systemName: "chevron.right")
+                        .foregroundStyle(DesignTokens.Colors.primary)
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 16)

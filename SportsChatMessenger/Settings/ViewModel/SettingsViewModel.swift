@@ -9,6 +9,8 @@ import Foundation
 
 class SettingsViewModel: ObservableObject {
     @Published var user: User?
+    @Published var profile: Profile?
+    @Published var isLoading: Bool = false
     
     @Published var showErrorMessage: Bool = false
     @Published var errorMessage: String?
@@ -29,14 +31,14 @@ class SettingsViewModel: ObservableObject {
         self.settingsService = settingsService
     }
     
-    func fetchData() async {
+    func fetchData() {
         guard let userID = sessionStorage.userID else {
             self.errorMessage = "Unable to fetch user information. Please try again later."
             self.showErrorMessage = true;
             return
         }
         
-        await settingsService.getUserData(userID: userID) { result in
+        settingsService.fetchUserData(userID: userID) { result in
             switch result {
             case .success(let user):
                 self.user = user
@@ -48,7 +50,30 @@ class SettingsViewModel: ObservableObject {
     }
     
     func onProfileTapped() {
-        print("Profile Button Tapped!")
+        self.isLoading = true
+        
+        guard let userID = sessionStorage.userID else {
+            self.errorMessage = "Unable to fetch user information. Please try again later."
+            self.showErrorMessage = true;
+            return
+        }
+        
+        settingsService.fetchUserProfile(userID: userID) { result in
+            self.isLoading = false
+            switch result {
+            case .success(let profile):
+                self.profile = profile
+                if let profile = profile {
+                    self.navigateToPage(.profile(profile))
+                } else {
+                    self.errorMessage = "Unable to fetch user information. Please try again later."
+                    self.showErrorMessage = true;
+                }
+            case .failure(let error):
+                self.errorMessage = error.localizedDescription
+                self.showErrorMessage = true;
+            }
+        }
     }
     
     func onSecurityTapped() {

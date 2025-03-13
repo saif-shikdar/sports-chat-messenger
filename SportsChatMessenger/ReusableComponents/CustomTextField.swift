@@ -19,5 +19,6 @@ struct CustomTextField: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    CustomTextField(placeholder: "Username", text: .constant(""))
+    CustomTextField(placeholder: "Username",
+                    text: .constant(""))
 }

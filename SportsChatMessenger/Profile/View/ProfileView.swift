@@ -26,7 +26,7 @@ struct ProfileView: View {
                                     width: UIScreen.main.bounds.width,
                                     height: UIScreen.main.bounds.height)
                         default:
-                            Image(Images.lightBackground)
+                            Image(Images.backgroundImage)
                                 .resizable()
                                 .edgesIgnoringSafeArea(.all)
                                 .frame(
@@ -51,7 +51,8 @@ struct ProfileView: View {
                                                hideSectionTapped: {},
                                                editSectionTapped: {})
                             Text(viewModel.profile?.bio ?? "")
-                                .foregroundStyle(.white)
+                                .font(DesignTokens.Typography.bodyFont)
+                                .foregroundStyle(DesignTokens.Colors.white)
                                 .padding(.bottom, 24)
                             ProfileHeadingView(title: "Details", showHideButton: false,
                                                hideSectionTapped: {},
@@ -62,19 +63,39 @@ struct ProfileView: View {
                             ProfileDetailsRowView(title: "Studied at \(viewModel.profile?.educationInstitution ?? "")",
                                                   subtitle: viewModel.profile?.educationField ?? "",
                                                   icon: "graduationcap.fill")
+                            ProfileDetailsRowView(title: viewModel.profile?.ethnicity ?? "",
+                                                  subtitle: "",
+                                                  icon: "shareplay")
+                            ProfileDetailsRowView(title: viewModel.profile?.relationshipStatus ?? "",
+                                                  subtitle: "",
+                                                  icon: "heart.fill")
+                            createUserCreationRow()
                             Spacer(minLength: 300)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .safeAreaPadding()
-                        .background(.black)
+                        .background(DesignTokens.Colors.black)
                     }
-                    
                 }
             }
-            .background(.black)
+            .background(DesignTokens.Colors.black)
         }
 
     }
+}
+
+@ViewBuilder
+func createUserCreationRow() -> some View {
+    HStack(spacing: 24) {
+        Image(systemName: "clock")
+            .foregroundStyle(DesignTokens.Colors.white)
+            .frame(width: 20, alignment: .center)
+        Text("Joined on February 2024")
+            .font(DesignTokens.Typography.bodyFont)
+            .foregroundStyle(DesignTokens.Colors.secondary)
+        Spacer()
+    }
+    .padding(.bottom, 24)
 }
 
 #Preview {
@@ -86,11 +107,11 @@ struct ProfileView: View {
                          ethnicity: "Mixed",
                          homeLocation: "Madrid",
                          links: [
-                            SocialLink(name: "Playstation",
-                                       icon: Images.playstationLogo,
+                            SocialLink(
+//                                name: .playstation,
                                        linkURL: "https://psntrophyleaders.com/user/view/saifshikdar#games"),
-                            SocialLink(name: "Instagram",
-                                       icon: Images.instagramLogo,
+                            SocialLink(
+//                                name: .instagram,
                                        linkURL: "https://www.instagram.com/judebellingham/?hl=en"),
                             
                          ],
@@ -107,7 +128,6 @@ struct ProfileView: View {
                          forename: "Jude",
                          surname: "Bellingham",
                          email: "bellinghamjude12@gmail.com",
-                         userID: "",
                          workCompany: "Real Madrid",
                          workTitle: "Football Player")))
 }

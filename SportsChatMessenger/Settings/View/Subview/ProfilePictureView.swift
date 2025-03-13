@@ -19,12 +19,6 @@ struct ProfilePictureView: View {
                 url: URL(string: imageURL)
             ) { phase in
                 switch phase {
-                case .failure:
-                    ProgressView()
-                        .frame(
-                            width: 150,
-                            height: 150
-                        )
                 case .success(let image):
                     image
                         .resizable()
@@ -46,15 +40,15 @@ struct ProfilePictureView: View {
             .padding(.top, 32)
             Text("\(forename) \(surname)")
                 .padding(.vertical, 16)
-                .font(.title3)
-                .fontWeight(.semibold)
+                .font(DesignTokens.Typography.titleFont)
+                .foregroundStyle(DesignTokens.Colors.primary)
         }
     }
 }
 
 #Preview {
-    ProfilePictureView(imageURL: "",
-                       forename: "Lindsay",
-                       surname: "Lohan")
+    ProfilePictureView(imageURL: "https://www.fifatrainingcentre.com/media/images/game/World-class-bellingham.variant1920x1080.jpg",
+                       forename: "Jude",
+                       surname: "Bellingham")
 }
 

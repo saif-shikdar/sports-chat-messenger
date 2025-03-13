@@ -15,18 +15,15 @@ struct LoginView: View {
         NavigationView {
             VStack(alignment: .center, spacing: 16) {
                 Text("Login")
+                    .font(DesignTokens.Typography.titleFont)
+                    .foregroundStyle(DesignTokens.Colors.primary)
                     .textCase(.uppercase)
                     .padding(.bottom, 30)
                 CustomTextField(placeholder: "Email", text: $viewModel.email)
                 CustomSecureField(
                     placeholder: "Password", text: $viewModel.password)
-                Button {
-                    viewModel.signIn()
-                } label: {
-                    Text("Sign In")
-                        .textCase(.uppercase)
-                }
-                .buttonStyle(.borderedProminent)
+                CustomTextButton(text: "Sign In",
+                                 onButtonTapped: viewModel.signIn)
                 .alert("Error", isPresented: $viewModel.showErrorMessage) {
 
                 } message: {
@@ -35,7 +32,7 @@ struct LoginView: View {
             }
             .safeAreaPadding()
             .background {
-                Image(Images.lightBackground)
+                Image(Images.backgroundImage)
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
                     .frame(

@@ -11,20 +11,34 @@ import FirebaseFirestore
 class SettingsService {
     let db = Firestore.firestore()
 
-    func getUserData(
+    func fetchUserData(
         userID: String, completion: @escaping (Result<User?, Error>) -> Void
-    ) async {
-        db.collection("users").whereField("uid", isEqualTo: userID).addSnapshotListener { (querySnapshot, error) in
-            guard let documents = querySnapshot?.documents, !documents.isEmpty else {
+    ) {
+        let docRef = db.collection("users").document(userID)
+
+        docRef.getDocument(as: User.self) { result in
+            switch result {
+            case .success(let user):
+                completion(.success(user))
+            case .failure(_):
                 completion(.failure(CustomError.noData))
-                return
             }
-            
-            let users = documents.compactMap { (queryDocumentSnapshot) -> User? in
-                return try? queryDocumentSnapshot.data(as: User.self)
+        }
+    }
+
+    func fetchUserProfile(
+        userID: String, completion: @escaping (Result<Profile?, Error>) -> Void
+    ) {
+        let docRef = db.collection("profiles").document(userID)
+        
+        docRef.getDocument(as: Profile.self) { result in
+            switch result {
+            case .success(let profile):
+                completion(.success(profile))
+            case .failure(let error):
+                print(error.localizedDescription)
+                completion(.failure(CustomError.noData))
             }
-            
-            completion(.success(users.first))
         }
     }
 }

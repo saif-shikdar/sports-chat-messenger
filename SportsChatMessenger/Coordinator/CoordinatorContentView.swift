@@ -20,8 +20,8 @@ struct CoordinatorContentView: View {
                     switch page {
                     case .root:
                         createTabView()
-                    case .profile:
-                        ProfileView(viewModel: ProfileViewModel(profile: nil))
+                    case .profile(let profile):
+                        ProfileView(viewModel: ProfileViewModel(profile: profile))
                     case .signUp:
                         LoginView(viewModel: LoginViewModel(coordinator: coordinator))
                     }

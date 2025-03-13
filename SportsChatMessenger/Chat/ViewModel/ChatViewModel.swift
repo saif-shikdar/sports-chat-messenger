@@ -9,17 +9,17 @@ import Foundation
 
 class ChatViewModel: ChatViewModelProtocol, ObservableObject {
     
-    var coordinator: Coordinator
+    var coordinator: Coordinator?
     
-    init(coordinator: Coordinator) {
+    init(coordinator: Coordinator?) {
         self.coordinator = coordinator
     }
     
     func navigateBackToRoot() {
-        coordinator.clearNavigationStack()
+        coordinator?.clearNavigationStack()
     }
     
     func navigateToPage(_ page: Coordinator.Page) {
-        coordinator.pushPage(page)
+        coordinator?.pushPage(page)
     }
 }

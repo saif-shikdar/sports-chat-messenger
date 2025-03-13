@@ -15,6 +15,8 @@ struct DashboardView: View {
         NavigationView {
             VStack(spacing: 10) {
                 Text("Hello Dashboard!")
+                    .font(DesignTokens.Typography.titleFont)
+                    .foregroundStyle(DesignTokens.Colors.primary)
             }
             .safeAreaPadding()
             .toolbar {
@@ -25,7 +27,7 @@ struct DashboardView: View {
                 }
             }
             .background {
-                Image(Images.lightBackground)
+                Image(Images.backgroundImage)
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
                     .frame(

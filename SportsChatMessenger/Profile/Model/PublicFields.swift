@@ -5,7 +5,7 @@
 //  Created by Saif Shikdar on 10/03/2025.
 //
 
-struct PublicFields {
+struct PublicFields: Hashable, Codable {
     let bio: Bool
     let education: Bool
     let ethnicity: Bool

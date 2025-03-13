@@ -15,9 +15,15 @@ struct ProfileLinksSection: View {
         ScrollView(.horizontal) {
             HStack(spacing: 30) {
                 ForEach(socialLinks, id: \.self) { link in
-                    Image(link.icon)
-                        .resizable()
-                        .frame(width: 25, height: 25)
+                    Button {
+                        if let url = URL(string: link.linkURL) {
+                            UIApplication.shared.open(url)
+                        }
+                    } label: {
+//                        Image(link.name.icon)
+//                            .resizable()
+//                            .frame(width: 25, height: 25)
+                    }
                 }
                 Spacer()
             }
@@ -30,12 +36,10 @@ struct ProfileLinksSection: View {
 #Preview(traits: .sizeThatFitsLayout) {
     ProfileLinksSection(socialLinks: [
         SocialLink(
-            name: "Playstation",
-            icon: Images.playstationLogo,
+//            name: .playstation,
             linkURL: "https://psntrophyleaders.com/user/view/saifshikdar#games"),
         SocialLink(
-            name: "Instagram",
-            icon: Images.instagramLogo,
+//            name: .instagram,
             linkURL: "https://www.instagram.com/judebellingham/?hl=en"),
     ])
 }

@@ -7,10 +7,13 @@
 
 struct Images {
     
+    // MARK: Icon
+    
+    static let linkIcon = "link-icon"
+    
     // MARK: Background Images
     
-    static let lightBackground = "light-background"
-    static let darkBackground = "dark-background"
+    static let backgroundImage = "background-image"
     
     // MARK: Logos
     

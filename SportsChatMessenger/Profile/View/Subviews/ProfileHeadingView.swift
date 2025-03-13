@@ -17,19 +17,24 @@ struct ProfileHeadingView: View {
     var body: some View {
         HStack(spacing: 35) {
             Text(title)
-                .foregroundStyle(.white)
+                .font(DesignTokens.Typography.titleFont)
+                .foregroundStyle(DesignTokens.Colors.white)
             Spacer()
             if (showHideButton) {
                 Button {
                     hideSectionTapped()
                 } label: {
                     Image(systemName: "eye")
+                        .foregroundStyle(DesignTokens.Colors.white)
                 }
             }
             Button {
                 editSectionTapped()
             } label: {
                 Text("Edit")
+                    .textCase(.uppercase)
+                    .font(DesignTokens.Typography.bodyFont)
+                    .foregroundStyle(DesignTokens.Colors.white)
             }
         }
         .padding(.bottom, 24)
@@ -41,4 +46,5 @@ struct ProfileHeadingView: View {
                        showHideButton: true,
                        hideSectionTapped: {},
                        editSectionTapped: {})
+    .background(.black)
 }

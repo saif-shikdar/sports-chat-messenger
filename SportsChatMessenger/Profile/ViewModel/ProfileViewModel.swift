@@ -21,24 +21,6 @@ class ProfileViewModel: ObservableObject {
         self.profile = profile
     }
     
-    func fetchData() async {
-        guard let userID = sessionStorage.userID else {
-            self.errorMessage = "Unable to fetch user profile. Please try again later."
-            self.showErrorMessage = true;
-            return
-        }
-        
-//        await settingsService.getUserData(userID: userID) { result in
-//            switch result {
-//            case .success(let user):
-//                self.user = user
-//            case .failure(let error):
-//                self.errorMessage = error.localizedDescription
-//                self.showErrorMessage = true;
-//            }
-//        }
-    }
-    
     func hideLinksTapped() {
         print("Hide Links Tapped!")
     }
