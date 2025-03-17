@@ -23,6 +23,7 @@ class ProfileViewModel: ObservableObject {
     
     func hideLinksTapped() {
         print("Hide Links Tapped!")
+        print(profile?.links.first?.name.rawValue ?? "Unknown")
     }
     
     func editLinksTapped() {

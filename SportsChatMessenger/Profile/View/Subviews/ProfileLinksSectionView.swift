@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftUICore
 
-struct ProfileLinksSection: View {
+struct ProfileLinksSectionView: View {
     let socialLinks: [SocialLink]
 
     var body: some View {
@@ -20,9 +20,9 @@ struct ProfileLinksSection: View {
                             UIApplication.shared.open(url)
                         }
                     } label: {
-//                        Image(link.name.icon)
-//                            .resizable()
-//                            .frame(width: 25, height: 25)
+                        Image(link.name.icon)
+                            .resizable()
+                            .frame(width: 25, height: 25)
                     }
                 }
                 Spacer()
@@ -34,12 +34,12 @@ struct ProfileLinksSection: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    ProfileLinksSection(socialLinks: [
+    ProfileLinksSectionView(socialLinks: [
         SocialLink(
-//            name: .playstation,
+            name: .playstation,
             linkURL: "https://psntrophyleaders.com/user/view/saifshikdar#games"),
         SocialLink(
-//            name: .instagram,
+            name: .instagram,
             linkURL: "https://www.instagram.com/judebellingham/?hl=en"),
     ])
 }

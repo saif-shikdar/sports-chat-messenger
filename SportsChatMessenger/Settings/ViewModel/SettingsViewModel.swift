@@ -70,6 +70,7 @@ class SettingsViewModel: ObservableObject {
                     self.showErrorMessage = true;
                 }
             case .failure(let error):
+                print("Failed")
                 self.errorMessage = error.localizedDescription
                 self.showErrorMessage = true;
             }

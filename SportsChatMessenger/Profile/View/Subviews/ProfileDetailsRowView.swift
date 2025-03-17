@@ -35,15 +35,15 @@ struct ProfileDetailsRowView: View {
 @ViewBuilder
 func createTextView(title: String, subtitle: String) -> some View {
     if (subtitle.isEmpty) {
-        Text(title)
+        Text(title.capitalized)
             .font(DesignTokens.Typography.bodyFont)
             .foregroundStyle(DesignTokens.Colors.secondary)
     } else {
         VStack(alignment: .leading, spacing: 5) {
-            Text(title)
+            Text(title.capitalized)
                 .font(DesignTokens.Typography.bodyFont)
                 .foregroundStyle(DesignTokens.Colors.white)
-            Text(subtitle)
+            Text(subtitle.capitalized)
                 .font(DesignTokens.Typography.captionFont)
                 .foregroundStyle(DesignTokens.Colors.white)
         }

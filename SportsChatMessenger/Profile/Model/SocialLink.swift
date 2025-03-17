@@ -6,10 +6,11 @@
 //
 
 struct SocialLink: Hashable, Codable {
-//    let name: SocialLinkType
+    let name: SocialLinkType
     let linkURL: String
     
     enum CodingKeys: String, CodingKey {
         case linkURL = "link_url"
+        case name
     }
 }

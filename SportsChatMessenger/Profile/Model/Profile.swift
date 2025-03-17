@@ -16,9 +16,6 @@ struct Profile: Hashable, Codable {
     let profilePictureURL: String
     let publicFields: PublicFields
     let relationshipStatus: String
-    let forename: String
-    let surname: String
-    let email: String
     let workCompany: String
     let workTitle: String
     
@@ -33,9 +30,6 @@ struct Profile: Hashable, Codable {
         case profilePictureURL = "profile_picture_url"
         case publicFields = "public_fields"
         case relationshipStatus = "relationship_status"
-        case forename
-        case surname
-        case email
         case workCompany = "work_company"
         case workTitle = "work_title"
     }
