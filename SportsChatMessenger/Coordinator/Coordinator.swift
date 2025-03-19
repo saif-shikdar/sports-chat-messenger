@@ -28,7 +28,7 @@ class Coordinator: ObservableObject {
     enum Page: Hashable {
         case root
         case signUp
-        case profile
+        case profile(Profile)
     }
 }
 

@@ -15,15 +15,19 @@ struct ChatView: View {
         NavigationView {
             VStack(spacing: 10) {
                 Text("Hello Chat!")
+                    .font(DesignTokens.Typography.bodyFont)
+                    .foregroundStyle(DesignTokens.Colors.primary)
             }
             .safeAreaPadding()
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Text("Chat")
+                        .font(DesignTokens.Typography.titleFont)
+                        .foregroundStyle(DesignTokens.Colors.primary)
                 }
             }
             .background {
-                Image("light-background")
+                Image(Images.backgroundImage)
                     .resizable()
                     .edgesIgnoringSafeArea(.all)
                     .frame(
@@ -34,4 +38,8 @@ struct ChatView: View {
         }
         
     }
+}
+
+#Preview {
+    ChatView(viewModel: ChatViewModel(coordinator: nil))
 }

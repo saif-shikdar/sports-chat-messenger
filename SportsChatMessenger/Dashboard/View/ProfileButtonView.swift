@@ -18,13 +18,10 @@ struct ProfileButtonView: View {
         } label: {
             AsyncImage(url: URL(string: imageURL)) { phase in
                 switch phase {
-                case .failure:
-                    Image(systemName: "photo")
-                        .font(.largeTitle)
                 case .success(let image):
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
                         .imageScale(.small)
                         .frame(width: 35, height: 35)
                         .clipShape(.circle)

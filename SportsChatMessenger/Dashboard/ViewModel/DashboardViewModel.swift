@@ -15,7 +15,7 @@ class DashboardViewModel: ObservableObject {
     }
     
     func openProfile() -> Void {
-        navigateToPage(.profile)
+//        navigateToPage(.profile)
     }
 }
 

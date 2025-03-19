@@ -13,34 +13,35 @@ struct LoginView: View {
 
     var body: some View {
         NavigationView {
-            VStack(alignment: .center, spacing: 16) {
-                Text("Login")
-                    .textCase(.uppercase)
-                    .padding(.bottom, 30)
-                CustomTextField(placeholder: "Email", text: $viewModel.email)
-                CustomSecureField(
-                    placeholder: "Password", text: $viewModel.password)
-                Button {
-                    viewModel.signIn()
-                } label: {
-                    Text("Sign In")
+            if (viewModel.authService.isLoading) {
+                LoadingView(isLoading: true)
+            } else {
+                VStack(alignment: .center, spacing: 16) {
+                    Text("Login")
+                        .font(DesignTokens.Typography.titleFont)
+                        .foregroundStyle(DesignTokens.Colors.primary)
                         .textCase(.uppercase)
-                }
-                .buttonStyle(.borderedProminent)
-                .alert("Error", isPresented: $viewModel.showErrorMessage) {
+                        .padding(.bottom, 30)
+                    CustomTextField(placeholder: "Email", text: $viewModel.email)
+                    CustomSecureField(
+                        placeholder: "Password", text: $viewModel.password)
+                    CustomTextButton(text: "Sign In",
+                                     onButtonTapped: viewModel.signIn)
+                    .alert("Error", isPresented: $viewModel.showErrorMessage) {
 
-                } message: {
-                    Text(viewModel.errorMessage ?? "Unknown Error")
+                    } message: {
+                        Text(viewModel.errorMessage ?? "Unknown Error")
+                    }
                 }
-            }
-            .safeAreaPadding()
-            .background {
-                Image("light-background")
-                    .resizable()
-                    .edgesIgnoringSafeArea(.all)
-                    .frame(
-                        width: UIScreen.main.bounds.width,
-                        height: UIScreen.main.bounds.height)
+                .safeAreaPadding()
+                .background {
+                    Image(Images.backgroundImage)
+                        .resizable()
+                        .edgesIgnoringSafeArea(.all)
+                        .frame(
+                            width: UIScreen.main.bounds.width,
+                            height: UIScreen.main.bounds.height)
+                }
             }
         }
     }

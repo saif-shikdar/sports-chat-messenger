@@ -8,18 +8,21 @@
 import FirebaseAuth
 
 class AuthenticationService: ObservableObject {
-
     @Published var signedIn: Bool = false
+    @Published var isLoading: Bool = false
 
     let auth = Auth.auth()
+    let sessionStorage = SessionStorage()
 
     init() {
+        isLoading = true
         _ = auth.addStateDidChangeListener { _, user in
             if user != nil {
                 self.signedIn = true
             } else {
                 self.signedIn = false
             }
+            self.isLoading = false
         }
     }
 
@@ -28,6 +31,8 @@ class AuthenticationService: ObservableObject {
             if let e = error {
                 completion(e)
             } else {
+                self.sessionStorage.storeUserEmail(email: email)
+                self.sessionStorage.storeUserID(userID: authResult?.user.uid ?? "")
                 completion(nil)
             }
         }
