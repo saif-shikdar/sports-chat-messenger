@@ -11,6 +11,7 @@ import SwiftUICore
 struct ProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel
     @State private var scrollPosition: CGPoint = .zero
+    @Environment(\.dismiss) var dismiss
 
     var body: some View {
         NavigationView {
@@ -92,16 +93,22 @@ struct ProfileView: View {
                         .safeAreaPadding()
                         .background(DesignTokens.Colors.black)
                     }
-                    .background(GeometryReader { geometry in
-                                        Color.clear
-                            .preference(key: ScrollOffsetPreferenceKey.self, value: geometry.frame(in: .named("scroll")).origin)
-                                    })
-                                    .onPreferenceChange(ScrollOffsetPreferenceKey.self) { value in
-                                        self.scrollPosition = value
-                                    }
+                    .background(
+                        GeometryReader { geometry in
+                            Color.clear
+                                .preference(
+                                    key: ScrollOffsetPreferenceKey.self,
+                                    value: geometry.frame(in: .named("scroll"))
+                                        .origin)
+                        }
+                    )
+                    .onPreferenceChange(ScrollOffsetPreferenceKey.self) {
+                        value in
+                        self.scrollPosition = value
+                    }
                 }
                 .coordinateSpace(name: "scroll")
-                if (scrollPosition.y < -520) {
+                if scrollPosition.y < -520 {
                     VStack {
                         Rectangle()
                             .frame(height: 180)
@@ -112,6 +119,17 @@ struct ProfileView: View {
             }
             .background(DesignTokens.Colors.black)
         }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button(action: {
+                    dismiss()
+                }) {
+                    Image(systemName: "xmark.circle.fill")
+                }
+            }
+        }
+        .tint(DesignTokens.Colors.white)
     }
 }
 
